@@ -1,0 +1,191 @@
+% Указываем VS Code использовать XeLaTeX
+% !TEX program = xelatex
+\PassOptionsToPackage{pdfpagelabels=false}{hyperref}
+
+% Шрифт всего документа - 12pt. Тип документа - статья
+\documentclass[12pt]{article}
+
+% Пакет для управленя шрифтами
+\usepackage{fontspec} 
+% Шрифт по умолчанию
+\setmainfont{Liberation Serif}
+% \setmainfont{Times New Roman}  % для Windows/macOS
+% \setmainfont{Liberation Serif} % для Linux
+
+% Шрифт для листинга (раскомментируй при необходимости)
+\setmonofont{DejaVu Sans Mono}[Scale=MatchLowercase]
+% Альтернативы:
+% \setmonofont{Courier New}      % для Windows/macOS
+% \setmonofont{Liberation Mono}  % для Linux
+
+% Пакета словаря
+\usepackage{polyglossia}
+% Язык документа по умолчанию - русский
+\setdefaultlanguage{russian}
+% Дополнительный язык
+\setotherlanguage{english}
+
+% Пакет для регулирования полей
+\usepackage[a4paper, margin=2cm]{geometry}
+
+% Пакет для вставки изображений
+\usepackage{graphicx}
+% Указываем путь к изображениям (удобно для организации проекта)
+\graphicspath{{./images/}}
+
+% Пакет для ссылок в документе
+\usepackage{hyperref}
+
+% Улучшения для оглавлений/закладок PDF: загружать после hyperref
+\usepackage{bookmark}
+
+% Пакет для разделительных символов в содержании
+\usepackage{tocloft}
+\renewcommand{\cftdot}{.}
+\renewcommand{\cftsecdotsep}{\cftdotsep}
+
+% Пакет для библиографии
+% Для компиляции с библиографией используй рецепт: xelatex -> biber -> xelatex x2
+%\usepackage[backend=biber, style=gost-numeric, language=autobib, autolang=other]{biblatex}
+%\addbibresource{references.bib}  % твой .bib файл из Zotero
+
+% Пакет для создания графиков
+%\usepackage{pgfplots}
+%\pgfplotsset{compat=1.18}
+
+% Пакеты для листинга кода и его подсветки
+% \usepackage{listings}
+% \usepackage{xcolor}
+
+% Параметры документа(дисциплина, год, тема и т.п.)
+\newcommand{\kafedraFirstString}{...}
+\newcommand{\kafedraSecondString}{...}
+\newcommand{\discipline}{...}
+\newcommand{\numberOfWork}{№... }
+\newcommand{\topic}{...}
+\newcommand{\teacher}{...}
+\newcommand{\yearr}{202... г.}
+
+% Начало документа
+\begin{document}
+
+    % Отключает нумерацию страниц в титульном листе и в содержании
+    \pagenumbering{gobble}
+
+    % Титульная странца
+    \begin{titlepage}
+	
+    % Логотип вуза
+    \begin{figure}
+	       \centering
+	       \includegraphics[width=0.4\linewidth]{logo.png}
+    \end{figure}
+	
+    % Подпись под логотипом
+    \begin{center}
+	       \textbf{МИНОБРНАУКИ РОССИИ} \\
+	       \textbf{Федеральное государственное автономное образовательное учреждение} \\
+	       \textbf{высшего образования} \\
+	       \textbf{«Московский государственный технологический университет «СТАНКИН»} \\
+	       \textbf{(ФГАОУ ВО «МГТУ «СТАНКИН»)}
+		
+	       % Разделительная линия
+	       \noindent \hrule
+    \end{center}
+	
+    % Инститиут
+    \noindent
+    \begin{minipage}{0.5\textwidth}
+	       \raggedright
+	       \textbf{Институт} \\
+	       \textbf{информационных} \\
+	       \textbf{технологий}
+    \end{minipage}
+    % Кафедра
+    \hfill
+    \begin{minipage}{0.5\textwidth}
+	       \raggedleft
+	       \textbf{Кафедра} \\
+	       \textbf{\kafedraFirstString} \\
+	       \textbf{\kafedraSecondString}
+    \end{minipage}
+    \vspace{1cm}
+	
+    % Название работы
+    \begin{center}
+	       Лабораторная работа \numberOfWork  по дисциплине \\ «\discipline»
+    \end{center}
+    \vspace{1cm}
+	
+    % Тема работы
+    \begin{center}
+	       Тема \\ «\topic»
+    \end{center}
+    \vspace{3cm}
+	
+    % Выполнил
+    \noindent
+    \begin{minipage}{0.5\textwidth}
+	       \raggedright
+	       Выполнил студент группы ИДБ-23-14: \\
+	       \centering
+	       Дамакальщиков М. А.
+    \end{minipage}
+    % Преподаватель
+    \hfill
+    \begin{minipage}{0.5\textwidth}
+	       \raggedleft
+	       Проверил преподаватель: \\
+	       \teacher
+    \end{minipage}
+    \vfill
+	
+    % Конец титульной страницы
+    \centering
+    \small Москва, \yearr
+	
+    \end{titlepage}
+
+    % Содержание
+    \begin{center}
+        \tableofcontents
+    \end{center}
+
+    % Новая страница
+    \newpage
+
+    % Нумерация с 3-его номера
+    \pagenumbering{arabic}
+    \setcounter{page}{3}
+	
+    % ==========================================
+    % ЗДЕСЬ ПИШИ СВОЙ КОНТЕНТ
+    % ==========================================
+
+    \section{Начало лабороторной работы}
+
+        \input{chapters/chapter1.tex}
+
+    % ==========================================
+    % БИБЛИОГРАФИЯ (раскомментируй при использовании)
+    % ==========================================
+    
+    % Страница с библиографией
+    %\cleardoublepage
+
+    % Делаем так, чтобы библиография появлялась независимо от ссылок
+    %\nocite{*}
+
+    % Выводим библиографию по центру
+    %\begin{center}
+	       %\printbibliography[heading=bibintoc, title={Список литературы}]
+    %\end{center}
+
+    % Отключаем нумерацию страницы
+    %\thispagestyle{empty}
+
+    % Конец страницы с библиографией
+    %\cleardoublepage
+
+% Конец документа
+\end{document}

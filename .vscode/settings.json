@@ -1,0 +1,114 @@
+{
+    // LaTeX Workshop настройки
+    // Автокомпиляция при сохранении
+    "latex-workshop.latex.autoBuild.run": "onSave",
+    // Очистка вспомогательных файлов после сборки
+    "latex-workshop.latex.autoClean.run": "onBuilt",
+    // Открытие PDF во вкладке VS Code
+    "latex-workshop.view.pdf.viewer": "tab",
+    // Включить SyncTeX (синхронизация между кодом и PDF)
+    "latex-workshop.synctex.afterBuild.enabled": true,
+    // ВАЖНО: Рецепты компиляции с ДВОЙНЫМ запуском для обновления содержания
+    "latex-workshop.latex.recipes": [
+        {
+            "name": "xelatex × 2",
+            "tools": [
+                "xelatex",
+                "xelatex"
+            ]
+        },
+        {
+            "name": "xelatex × 1",
+            "tools": [
+                "xelatex"
+            ]
+        },
+        {
+            "name": "xelatex → biber → xelatex × 2",
+            "tools": [
+                "xelatex",
+                "biber",
+                "xelatex",
+                "xelatex"
+            ]
+        },
+        {
+            "name": "pdflatex × 2",
+            "tools": [
+                "pdflatex",
+                "pdflatex"
+            ]
+        },
+        {
+            "name": "pdflatex × 1",
+            "tools": [
+                "pdflatex"
+            ]
+        }
+    ],
+    // Инструменты компиляции
+    "latex-workshop.latex.tools": [
+        {
+            "name": "xelatex",
+            "command": "xelatex",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "-shell-escape",
+                "%DOC%"
+            ],
+            "env": {}
+        },
+        {
+            "name": "pdflatex",
+            "command": "pdflatex",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "%DOC%"
+            ],
+            "env": {}
+        },
+        {
+            "name": "biber",
+            "command": "biber",
+            "args": [
+                "%DOCFILE%"
+            ],
+            "env": {}
+        }
+    ],
+    // Использовать последний успешный рецепт по умолчанию
+    "latex-workshop.latex.recipe.default": "lastUsed",
+    // Файлы для очистки
+    "latex-workshop.latex.clean.fileTypes": [
+        "*.aux",
+        "*.bbl",
+        "*.blg",
+        "*.idx",
+        "*.ind",
+        "*.lof",
+        "*.lot",
+        "*.out",
+        "*.toc",
+        "*.acn",
+        "*.acr",
+        "*.alg",
+        "*.glg",
+        "*.glo",
+        "*.gls",
+        "*.fls",
+        "*.log",
+        "*.fdb_latexmk",
+        "*.snm",
+        "*.synctex(busy)",
+        "*.synctex.gz(busy)",
+        "*.nav",
+        "*.bcf",
+        "*.run.xml"
+    ],
+    // Включить автодополнение
+    "latex-workshop.intellisense.package.enabled": true
+}

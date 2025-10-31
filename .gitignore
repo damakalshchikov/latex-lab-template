@@ -1,0 +1,111 @@
+# LaTeX временные файлы
+*.aux
+*.lof
+*.log
+*.lot
+*.fls
+*.out
+*.toc
+*.fmt
+*.fot
+*.cb
+*.cb2
+.*.lb
+
+# Индексы
+*.idx
+*.ilg
+*.ind
+
+# Библиография
+*.bbl
+*.bcf
+*.blg
+*-blx.aux
+*-blx.bib
+*.run.xml
+
+# Glossaries
+*.acn
+*.acr
+*.glg
+*.glo
+*.gls
+*.glsdefs
+*.lzo
+*.lzs
+
+# Hyperref
+*.brf
+
+# Knitr
+*-concordance.tex
+
+# Listings
+*.lol
+
+# Makeindex
+*.ist
+
+# Minitoc
+*.maf
+*.mlf
+*.mlt
+*.mtc[0-9]*
+*.slf[0-9]*
+*.slt[0-9]*
+*.stc[0-9]*
+
+# Minted
+_minted*
+*.pyg
+
+# Nomenclature
+*.nlg
+*.nlo
+*.nls
+
+# SyncTeX
+*.synctex
+*.synctex(busy)
+*.synctex.gz
+*.synctex.gz(busy)
+*.pdfsync
+
+# Beamer
+*.nav
+*.pre
+*.snm
+*.vrb
+
+# Fdb_latexmk
+*.fdb_latexmk
+
+# TikZ & PGF
+*.figlist
+*.makefile
+
+# Xindy
+*.xdy
+
+# XeLaTeX
+*.xdv
+
+# Latexmk
+*.fdb_latexmk
+
+# PDF результат
+*.pdf
+
+# VS Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# JetBrains IDEs
+.idea/
+
+# AI
+CLAUDE.md
