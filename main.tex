@@ -5,7 +5,7 @@
 % Шрифт всего документа - 12pt. Тип документа - статья
 \documentclass[12pt]{article}
 
-% Пакет для управленя шрифтами
+% Пакет для управления шрифтами
 \usepackage{fontspec} 
 % Шрифт по умолчанию
 \setmainfont{Liberation Serif}
@@ -18,7 +18,7 @@
 % \setmonofont{Courier New}      % для Windows/macOS
 % \setmonofont{Liberation Mono}  % для Linux
 
-% Пакета словаря
+% Пакет для работы с языками
 \usepackage{polyglossia}
 % Язык документа по умолчанию - русский
 \setdefaultlanguage{russian}
@@ -72,7 +72,7 @@
     % Отключает нумерацию страниц в титульном листе и в содержании
     \pagenumbering{gobble}
 
-    % Титульная странца
+    % Титульная страница
     \begin{titlepage}
 	
     % Логотип вуза
@@ -93,7 +93,7 @@
 	       \noindent \hrule
     \end{center}
 	
-    % Инститиут
+    % Институт
     \noindent
     \begin{minipage}{0.5\textwidth}
 	       \raggedright
@@ -162,7 +162,7 @@
     % ЗДЕСЬ ПИШИ СВОЙ КОНТЕНТ
     % ==========================================
 
-    \section{Начало лабороторной работы}
+    \section{Начало лабораторной работы}
 
         \input{chapters/chapter1.tex}
 
